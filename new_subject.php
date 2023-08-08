@@ -24,7 +24,6 @@
                                 echo "<option value=\"{$count}\">${count}</option>";
                             }
                             ?>
-                        
                         </select>
                     </p>
                     <p>Visible:

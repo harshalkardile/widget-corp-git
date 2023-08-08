@@ -1,5 +1,30 @@
 <?php
 
+//get_magic_quotes_gpc() is deprecated in the following function
+// function mysql_prep($value){
+//     $magic_quotes_active = get_magic_quotes_gpc();
+//     $new_enough_php = function_exists("mysql_real_escape_string");
+//     if($new_enough_php){
+//         if($magic_quotes_active){
+//             $value = stripslashes($value);
+//         }
+//         $value=mysql_real_escape_string($value);
+//         }
+//         else {
+//              if(!magic_quotes_active){
+//                 $value=addslashes($value);
+//              }
+//         }
+//         return $value;
+//     }
+    
+
+function redirect_to( $location = NULL ){
+    if($location!=NULL) {
+        header("Location:{$location}");
+        exit;
+    }
+}
 function confirm_query($result_set){
 
     if(!$result_set){
@@ -83,7 +108,7 @@ function navigation($sel_subject, $sel_page){
             $output .= " class=\"selected\"";
         }                      
         
-        $output .= "><br><a href=\"content.php?subj=" . urlencode($subject["id"]). "\">{$subject["menu_name"]}</a></li>"; 
+        $output .= "><br><a href=\"edit_subject.php?subj=" . urlencode($subject["id"]). "\">{$subject["menu_name"]}</a></li>"; 
 
             $page_set = get_pages_for_subject($subject["id"]);
 
